@@ -1,0 +1,122 @@
+/* Animation Styles */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn var(--transition-normal) ease-in-out;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp var(--transition-normal) ease-out;
+}
+
+/* Slide down animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-down {
+  animation: slideDown var(--transition-normal) ease-out;
+}
+
+/* Hover animations */
+.hover-lift {
+  transition: transform var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform var(--transition-normal);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Mega menu animation */
+.mega-menu {
+  animation-duration: var(--transition-normal);
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.nav-item.has-megamenu:hover .mega-menu {
+  animation-name: fadeIn;
+}
+
+/* Sub-submenu animation */
+.sub-submenu {
+  animation-duration: var(--transition-normal);
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.has-submenu:hover .sub-submenu {
+  animation-name: fadeIn;
+}
+
+/* Pulse animation for attention */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Shimmer animation for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, 
+    var(--color-surface) 0%, 
+    var(--color-surface-hover) 50%, 
+    var(--color-surface) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}

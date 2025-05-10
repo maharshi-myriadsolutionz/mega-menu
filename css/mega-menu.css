@@ -1,0 +1,257 @@
+/* Mega Menu Styles */
+
+/* First level: Nav item with mega menu */
+.has-megamenu {
+  position: static;
+}
+
+/* Second level: Mega menu container */
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--glass-background);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: var(--border-width) solid var(--glass-border);
+  border-bottom: var(--border-width) solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity var(--transition-normal),
+              visibility var(--transition-normal),
+              transform var(--transition-normal);
+  z-index: var(--z-dropdown);
+}
+
+/* Show mega menu on hover */
+.nav-item.has-megamenu:hover .mega-menu,
+.nav-item.has-megamenu:focus-within .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Mega menu grid layout */
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  padding: var(--space-6) 0;
+}
+
+.mega-menu-column {
+  padding: 0 var(--space-4);
+}
+
+.mega-menu-column h3 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.mega-menu-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.mega-menu-column h4 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+.mega-menu-column p {
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-sm);
+}
+
+/* Submenu list */
+.submenu-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.submenu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-normal);
+  border: 1px solid transparent;
+}
+
+.submenu-link:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-primary);
+  border-color: var(--glass-border);
+  transform: translateX(4px);
+}
+
+/* Submenu indicator */
+.submenu-indicator {
+  margin-left: var(--space-2);
+  font-size: var(--font-size-lg);
+  transition: transform var(--transition-normal);
+}
+
+/* Third level: Sub-submenu */
+.has-submenu {
+  position: relative;
+}
+
+.sub-submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 240px;
+  background-color: var(--glass-background);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: var(--border-width) solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--glass-shadow);
+  padding: var(--space-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(10px);
+  transition: opacity var(--transition-normal),
+              visibility var(--transition-normal),
+              transform var(--transition-normal);
+  z-index: calc(var(--z-dropdown) + 1);
+}
+
+/* Show sub-submenu on hover */
+.has-submenu:hover .sub-submenu,
+.has-submenu:focus-within .sub-submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Rotate indicator when sub-submenu is active */
+.has-submenu:hover .submenu-indicator,
+.has-submenu:focus-within .submenu-indicator {
+  transform: rotate(90deg);
+}
+
+.sub-submenu-link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.sub-submenu-link:hover {
+  background-color: var(--color-surface-hover);
+  color: var(--color-text-primary);
+  transform: translateX(4px);
+}
+
+/* Featured item in mega menu */
+.featured-item {
+  background: var(--color-surface-hover);
+  border: var(--border-width) solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.featured-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.featured-icon {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-3);
+}
+
+.featured-item h5 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.featured-item p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-3);
+}
+
+.featured-link {
+  display: inline-block;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  transition: color var(--transition-normal);
+}
+
+.featured-link:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Responsive mega menu */
+@media (max-width: 1023px) {
+  .has-megamenu {
+    position: relative;
+  }
+  
+  .mega-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+  
+  .nav-item.has-megamenu:hover .mega-menu,
+  .nav-item.has-megamenu:focus-within .mega-menu {
+    max-height: 2000px;
+  }
+  
+  .mega-menu-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) 0;
+  }
+  
+  .mega-menu-column {
+    padding: 0;
+  }
+  
+  .sub-submenu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 0 0 var(--space-4);
+  }
+  
+  .has-submenu:hover .sub-submenu,
+  .has-submenu:focus-within .sub-submenu {
+    max-height: 1000px;
+    padding: var(--space-2) 0 var(--space-2) var(--space-4);
+  }
+}
